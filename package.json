@@ -1,0 +1,49 @@
+{
+  "name": "test-electron",
+  "version": "1.0.0",
+  "description": "test-electron",
+  "main": "examples/index.js",
+  "scripts": {
+    "test": "electron examples/index.js",
+    "start": "electron .",
+    "package-win": "electron-packager . delivery --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds --version-string.CompanyName=ssoft --version-string.FileDescription=ssoftDeliveryShop--version-string.ProductName=\"delivery\""
+  },
+  "author": "test-electron",
+  "license": "MIT",
+  "dependencies": {
+    "iconv": "^3.0.1",
+    "iconv-lite": "^0.6.2",
+    "mutable-buffer": "^3.0.0",
+    "serialport": "^10.0.0",
+    "usb": "^1.9.2"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.2.10",
+    "electron": "^11.5.0",
+    "electron-builder": "^23.6.0",
+    "electron-packager": "^17.1.1"
+  },
+  "build": {
+    "appId": "com.test-electron.app",
+    "productName": "Delivery",
+    "target": "NSIS",
+    "directories": {
+      "output": "build"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    },
+    "win": {
+      "icon": "assets/icon-256x256.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  }
+}
