@@ -4,12 +4,9 @@
 const EventEmitter = require('events');
 const { MutableBuffer } = require('mutable-buffer');
 const iconv = require('iconv-lite');
-var Iconv  = require('iconv').Iconv;
 function encoding(text, encode){
   if (!encode) return text;
-  var iconvEncode = new Iconv('utf-8', encode);
-  // return iconv.encode(text, encode);
-  return iconvEncode.convert(text);
+  return iconv.encode(text, encode);
 };
 
 function textLength(text, encode){
